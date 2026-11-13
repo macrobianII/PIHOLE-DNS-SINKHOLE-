@@ -52,7 +52,7 @@ From here, the installer walks through an interactive setup: choosing an upstrea
 
 ### Step 2 — Installation completes with connection details
 
-![Pi-hole installation complete — DNS and dashboard details](screenshot-2-install-complete.png)
+![Pi-hole installation complete — DNS and dashboard details]
 
 ```
 [i] You may now configure your devices to use the Pi-hole as their DNS server
@@ -73,7 +73,8 @@ Two things worth noting here: Pi-hole auto-generates a random admin password at 
 
 ### Step 3 — Dashboard, live and filtering
 
-![Pi-hole dashboard showing live stats](screenshot-3-dashboard.png)
+<img width="1264" height="621" alt="image" src="https://github.com/user-attachments/assets/20f0a6a6-5528-4889-900e-b74e53fbe4d9" />
+[Pi-hole dashboard showing live stats]
 
 Logging into `http://192.168.100.143/admin` with the generated password shows the live dashboard — hostname `kali`, status **Active**:
 
