@@ -129,4 +129,4 @@ That last command is the real proof-of-work: a successful block shows `0.0.0.0` 
 
 ---
 
-*Part of my ongoing cybersecurity learning journey toward a SOC analyst role. See my other projects: [mini security log dashboard / SIEM project link]*
+
