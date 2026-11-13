@@ -30,7 +30,8 @@ I wanted hands-on experience with:
 curl -sSL https://install.pi-hole.net | bash
 ```
 
-![Pi-hole installer start — root/sudo check](screenshot-1-install-start.png)
+<img width="657" height="551" alt="image" src="https://github.com/user-attachments/assets/39d504d8-97e6-4f61-b432-15e5d4aa14bd" />
+[Pi-hole installer start — root/sudo check]
 
 Before doing anything else, the installer runs a safety check — notably refusing to proceed without root privileges, and prompting for `sudo` even when invoked as a normal user:
 
