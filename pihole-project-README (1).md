@@ -88,23 +88,25 @@ Logging into `http://192.168.100.143/admin` with the generated password shows th
 
 The **Total queries** graph shows real traffic bursts throughout the day, correlating with actual browsing activity on the network — confirming Pi-hole is genuinely intercepting and logging every DNS request, not just sitting idle.
 
-### If managing from a Windows machine
+### Configuring a Windows machine to use the Kali Pi-hole
 
-A few PowerShell commands are useful for testing and verifying the DNS setup from a Windows client on the same network:
+Point your Windows client at the Pi-hole's IP so its DNS queries actually get filtered:
 
 ```powershell
-# Confirm which DNS server your machine is actually using
+# Check what DNS server you're currently using
 Get-DnsClientServerAddress
 
-# Manually point this machine at the Pi-hole for testing (before changing it at the router level)
-Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddresses ("<pihole-ip>")
+# Point this machine at the Pi-hole (replace with your Kali's actual IP)
+Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddresses ("192.168.100.143")
 
-# Clear the local DNS cache so new queries actually go through Pi-hole
+# Flush the local cache so it picks up the new DNS immediately
 Clear-DnsClientCache
 
-# Test that a known ad domain resolves to Pi-hole's blocked response
-Resolve-DnsName doubleclick.net -Server <pihole-ip>
+# Confirm it's working — a blocked domain should fail to resolve
+Resolve-DnsName doubleclick.net -Server 192.168.100.143
 ```
+
+If the last command returns `0.0.0.0` or fails to resolve, Pi-hole is successfully filtering traffic from your Windows machine.
 
 That last command is the real proof-of-work: a successful block shows `0.0.0.0` or an NXDOMAIN-style failure instead of a real IP, confirming Pi-hole is actually intercepting and filtering the query rather than the client silently falling back to another DNS server.
 
